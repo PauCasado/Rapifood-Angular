@@ -1,5 +1,5 @@
 <h2>No te podes perder estas delicias!!!</h2>
-<table class="table">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Imagen</th>
@@ -10,26 +10,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngFor="let food of foods" [ngClass]="{'clearance' : food.clearance}" >
             <td><img [src]="food.imagen" [alt]="food.nombre"></td>
             <td>{{food.nombre}}</td>
             <td>{{food.ingredientes}}</td>
-            <td>{{food.precio}}</td>
-            <td>{{food.stock}}</td>
-        </tr>
-        <tr>
-            <td><img [src]="food1.imagen" [alt]="food1.nombre"></td>
-            <td>{{food1.nombre}}</td>
-            <td>{{food1.ingredientes}}</td>
-            <td>{{food1.precio}}</td>
-            <td>{{food1.stock}}</td>
-        </tr>
-        <tr>
-            <td><img [src]="food2.imagen" [alt]="food2.nombre"></td>
-            <td>{{food2.nombre}}</td>
-            <td>{{food2.ingredientes}}</td>
-            <td>{{food2.precio}}</td>
-            <td>{{food2.stock}}</td>
+            <td>{{food.precio | currency }}</td>
+            <td> <span class="badge bg-warning text-dark" *ngIf="food.stock==0">SIN STOCK</span> </td>
         </tr>
     </tbody>
 </table>
