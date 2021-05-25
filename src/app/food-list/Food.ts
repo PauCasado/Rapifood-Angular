@@ -5,4 +5,5 @@ export interface Food{
     stock: number;
     imagen: string;
     clearance: boolean;
+    quantity:number;
 }

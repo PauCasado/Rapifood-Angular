@@ -15,6 +15,7 @@ export class FoodListComponent implements OnInit {
       "stock":100,
       "imagen" : "assets/img/papas.png",
       "clearance" : false,
+      "quantity" :0,
     },
     {
       "nombre": "MrBurger",
@@ -23,6 +24,7 @@ export class FoodListComponent implements OnInit {
       "stock":150,
       "imagen" : "assets/img/hamb.jpg",
       "clearance" : true,
+      "quantity" :0,
     },
     {
       "nombre": "King of the House",
@@ -31,11 +33,29 @@ export class FoodListComponent implements OnInit {
       "stock":0,
       "imagen" : "assets/img/combo.jpg",
       "clearance" : false,
+      "quantity" :0,
     }
   ];
   constructor() { }
 
   ngOnInit(): void {
   }
+  upQuantity(food: Food): void{
+    if(food.quantity < food.stock)
+    food.quantity++;
+  }
+  downQuantity(food: Food): void{
+    if (food.quantity > 0){
+      food.quantity--;
+    }
+  }
+  onChangeQuantity(e: any,food:Food):void{
+    if(e.key>9 && e.key<0){
+      if(e.key < food.stock){
+        e.preventDefaul();
+      }
+    }
+  }
+    
 
 }

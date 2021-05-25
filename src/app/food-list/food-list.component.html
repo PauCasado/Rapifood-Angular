@@ -7,6 +7,7 @@
             <th>Ingredientes</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Compra</th>
         </tr>
     </thead>
     <tbody>
@@ -16,6 +17,11 @@
             <td>{{food.ingredientes}}</td>
             <td>{{food.precio | currency }}</td>
             <td> <span class="badge bg-warning text-dark" *ngIf="food.stock==0">SIN STOCK</span> </td>
+            <td width=200>
+                <button class="btn btn-outline-success btn-sm" (click)="downQuantity(food)">-</button>
+                <input style="width : 40px" type="text" [(ngModel)]="food.quantity" (keyup)="onChangeQuantity($event,food)">
+                <button class="btn btn-outline-success btn-sm" (click)="upQuantity(food)">+</button>
+            </td>
         </tr>
     </tbody>
 </table>
