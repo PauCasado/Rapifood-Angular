@@ -1,0 +1,11 @@
+<div class="input-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <button (click)="downQuantity()" class="btn btn-primary btn-sm" [disabled]='!limit'>-</button>
+      </div>
+      <input class="text-center " type="number" name="quantity" [(ngModel)]="quantity" (value)="quantity" (keyup)="changeQuantity($event)"  [disabled]='!limit'>
+      <div class="input-group-append">
+        <button (click)="upQuantity()" class="btn btn-primary btn-sm" [disabled]='!limit'>+</button>
+      </div>
+    </div>
+</div>

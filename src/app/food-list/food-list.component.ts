@@ -12,7 +12,7 @@ export class FoodListComponent implements OnInit {
       "nombre": "SuperPotato",
       "ingredientes": "Papas Fritas con Cheddar y Panceta",
       "precio": 120,
-      "stock":100,
+      "stock":10,
       "imagen" : "assets/img/papas.png",
       "clearance" : false,
       "quantity" :0,
@@ -21,7 +21,7 @@ export class FoodListComponent implements OnInit {
       "nombre": "MrBurger",
       "ingredientes": "Super Hamburguesa de Ternera con Tomate, Lechuga, Queso Fundido, Huevo Frito y Barbacoa",
       "precio": 200,
-      "stock":150,
+      "stock":20,
       "imagen" : "assets/img/hamb.jpg",
       "clearance" : true,
       "quantity" :0,
@@ -40,21 +40,8 @@ export class FoodListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  upQuantity(food: Food): void{
-    if(food.quantity < food.stock)
-    food.quantity++;
-  }
-  downQuantity(food: Food): void{
-    if (food.quantity > 0){
-      food.quantity--;
-    }
-  }
-  onChangeQuantity(e: any,food:Food):void{
-    if(e.key>9 && e.key<0){
-      if(e.key < food.stock){
-        e.preventDefaul();
-      }
-    }
+  maxReached(b: boolean) {
+    alert("Se alcanzó, o superó, la cantidad máxima de comida.");
   }
     
 

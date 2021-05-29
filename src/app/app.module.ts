@@ -5,14 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FoodListComponent } from './food-list/food-list.component';
 import { FoodCartComponent } from './food-cart/food-cart.component';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
 
 import { FormsModule } from '@angular/forms';
+import { RapifoodAboutComponent } from './rapifood-about/rapifood-about.component';
+import { RapifoodFoodsComponent } from './rapifood-foods/rapifood-foods.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     FoodListComponent,
-    FoodCartComponent
+    FoodCartComponent,
+    InputIntegerComponent,
+    RapifoodAboutComponent,
+    RapifoodFoodsComponent
   ],
   imports: [
     BrowserModule,
