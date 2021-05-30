@@ -7,6 +7,7 @@
             <th>Ingredientes</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Cantidad</th>
             <th>Compra</th>
         </tr>
     </thead>
@@ -18,7 +19,10 @@
             <td>{{food.precio | currency }}</td>
             <td> <span class="badge bg-warning text-dark" *ngIf="food.stock==0">SIN STOCK</span> </td>
             <td width=200>
-                <app-input-integer width=100 [(quantity)]="food.quantity" [limit]="food.stock" *ngIf="food.stock!=0" (maxReached)="maxReached($event)"></app-input-integer>
+                <app-input-integer width=100 [(quantity)]="food.quantity" [limit]="food.stock" *ngIf="food.stock" (maxReached)="maxReached($event)"></app-input-integer>
+            </td>
+            <td>
+                <button class="btn btn-success" (click)="addToCart(food)" [disabled]='!food.clearance || food.quantity == 0'>Comprar</button>
             </td>
         </tr>
     </tbody>

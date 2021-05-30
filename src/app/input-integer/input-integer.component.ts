@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Food } from '../food-list/Food';
 
 @Component({
   selector: 'app-input-integer',
@@ -8,7 +9,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class InputIntegerComponent implements OnInit {
 
   constructor() { }
+
   @Input()
+  //REVISAR
   quantity!: number;
 
   @Input()

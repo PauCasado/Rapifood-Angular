@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FoodCartService } from '../food-cart.service';
 import {Food} from './Food';
 
 @Component({
@@ -36,7 +37,8 @@ export class FoodListComponent implements OnInit {
       "quantity" :0,
     }
   ];
-  constructor() { }
+  
+  constructor(private cart: FoodCartService) {}
 
   ngOnInit(): void {
   }
@@ -44,5 +46,9 @@ export class FoodListComponent implements OnInit {
     alert("Se alcanzó, o superó, la cantidad máxima de comida.");
   }
     
-
+  addToCart(food: Food):void {
+    this.cart.addToCart(food);
+    food.stock -= food.quantity;
+    food.quantity = 0;
+  }
 }
