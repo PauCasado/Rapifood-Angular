@@ -8,12 +8,12 @@ import { Food } from './food-list/Food';
 export class FoodCartService {
   
   private _cartList: Food[] = [];
-  cartList: BehaviorSubject<Food[]> = new BehaviorSubject([]);
+  cartList: BehaviorSubject<Food[]> = new BehaviorSubject(this._cartList);
 
   constructor() { }
 
   addToCart(food: Food) {
-    let item: Food = this._cartList.find((v1) => v1.nombre == food.nombre);
+    let item = this._cartList.find((v1) => v1.nombre == food.nombre);
     if (!item) {
       this._cartList.push({...food});
     }

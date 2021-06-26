@@ -16,13 +16,13 @@
             <td><img [src]="food.imagen" [alt]="food.nombre"></td>
             <td>{{food.nombre}}</td>
             <td>{{food.ingredientes}}</td>
-            <td>{{food.precio | currency }}</td>
+            <td width="50px">{{food.precio | currency }}</td>
             <td> <span class="badge bg-warning text-dark" *ngIf="food.stock==0">SIN STOCK</span> </td>
-            <td width=200>
-                <app-input-integer width=100 [(quantity)]="food.quantity" [limit]="food.stock" *ngIf="food.stock" (maxReached)="maxReached($event)"></app-input-integer>
+            <td width="100px">
+                <app-input-integer [(quantity)]="food.quantity" [limit]="food.stock" *ngIf="food.stock" (maxReached)="maxReached($event)"></app-input-integer>
             </td>
             <td>
-                <button class="btn btn-success" (click)="addToCart(food)" [disabled]='!food.clearance || food.quantity == 0'>Comprar</button>
+                <button class="btn btn-success" (click)="addToCart(food)" [disabled]='food.clearance || food.quantity == 0'>Comprar</button>
             </td>
         </tr>
     </tbody>

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FoodListComponent } from './food-list/food-list.component';
 import { FoodCartComponent } from './food-cart/food-cart.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
+import {HttpClientModule} from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 import { RapifoodAboutComponent } from './rapifood-about/rapifood-about.component';
@@ -24,7 +25,8 @@ import { RapifoodFoodsComponent } from './rapifood-foods/rapifood-foods.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
